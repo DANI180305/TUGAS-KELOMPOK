@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Gino</title>
+    <!-- Link ke file CSS yang sudah kita buat -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome untuk ikon sosial media -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* CSS tambahan untuk memastikan ikon Font Awesome bekerja */
+        .fa-linkedin-in:before { content: "\f0e1"; }
+        .fa-github:before { content: "\f09b"; }
+        .fa-twitter:before { content: "\f099"; }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="gino.html">Porto Web | B</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="daniello.html">Daniello</a></li>
+                <li><a href="gino.html">Gino</a></li>
+                <li><a href="maikel.html">Maikel</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skill">Skill</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HEADER / HOME -->
+    <section id="home">
+        <div class="header-content">
+            <!-- Ganti URL ini dengan foto Anda, atau gunakan placeholder -->
+            <img src="https://placehold.co/150x150/007bff/ffffff?text=Gino" alt="Foto Profil Gino" class="profile-img">
+            
+            <h1 class="name">Gino</h1>
+            <p class="job-title">Frontend & UI/UX Specialist</p>
+            <p class="desc-singkat">Seorang desainer web yang fokus menciptakan pengalaman pengguna yang mulus dan antarmuka yang estetis.</p>
+
+            <!-- Social Media -->
+            <div class="social-media">
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <h2>Tentang Saya</h2>
+            <div class="about-content">
+                <p>
+                    Gino adalah ahli dalam menerjemahkan desain visual menjadi kode fungsional. Ia memiliki pemahaman mendalam tentang user-centered design dan kegigihan dalam menjaga konsistensi pixel-perfect pada setiap proyek.
+                </p>
+                <p>
+                    Dalam proyek web ini, Gino memimpin bagian design dan implementasi CSS untuk memastikan tampilan yang responsif dan menarik. Keahliannya memastikan bahwa navigasi antara halaman Daniello, Gino, dan Maikel terasa intuitif dan menyenangkan bagi pengguna.
+                </p>
+                <img src="https://placehold.co/300x200/e9ecef/343a40?text=Foto+Lain" alt="Foto Tambahan Gino" style="max-width: 100%; height: auto; border-radius: 8px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILL -->
+    <section id="skill">
+        <div class="container">
+            <h2>Keahlian Teknis</h2>
+            <div class="skill-grid">
+                <div class="skill-item">
+                    <h4>HTML5 & CSS3</h4>
+                    <p>Penguasaan Semantic HTML dan CSS Grid/Flexbox untuk tata letak modern.</p>
+                </div>
+                <div class="skill-item">
+                    <h4>JavaScript (Basic)</h4>
+                    <p>Implementasi logika sisi klien sederhana, seperti fungsi toggle menu.</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Figma & Sketch</h4>
+                    <p>Mendesain wireframe dan mockup UI/UX profesional.</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Responsiveness</h4>
+                    <p>Memastikan tampilan web optimal di semua ukuran layar (desktop, tablet, mobile).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <h2>Hubungi Gino</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Nama Anda" required>
+                <input type="email" placeholder="Email Anda" required>
+                <textarea placeholder="Pesan Anda..." required></textarea>
+                <button type="submit" class="btn-submit">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2025 Kelompok B Web Portfolio. Powered by HTML & CSS.</p>
+    </footer>
+
+    <!-- JavaScript untuk fungsi Hamburger Menu -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
