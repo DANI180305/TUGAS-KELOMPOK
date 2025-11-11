@@ -7,6 +7,8 @@
     --text-dark: #343a40; /* Teks gelap */
     --text-light: #ffffff; /* Teks terang */
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius-lg: 12px;
+    --border-radius-sm: 8px;
 }
 
 * {
@@ -20,60 +22,12 @@ body {
     background-color: var(--secondary-color);
     color: var(--text-dark);
     line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
 /* ------------------------------------- */
-/* 1. NAVBAR */
+/* Global Reusable Styles */
 /* ------------------------------------- */
-
-.navbar {
-    background-color: var(--text-dark);
-    color: var(--text-light);
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo a {
-    color: var(--text-light);
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-}
-
-.nav-links a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--primary-color);
-}
-
-/* Hamburger Menu Icon (untuk mobile) */
-.hamburger {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
-/* ------------------------------------- */
-/* Layout Utama */
-/* ------------------------------------- */
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -84,7 +38,7 @@ section {
     padding: 4rem 0;
     margin-bottom: 2rem;
     background-color: var(--text-light);
-    border-radius: 12px;
+    border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow);
 }
 
@@ -93,26 +47,180 @@ h2 {
     color: var(--primary-color);
     margin-bottom: 3rem;
     font-size: 2.2rem;
-    border-bottom: 3px solid var(--primary-color);
-    display: inline-block;
+    position: relative;
     padding-bottom: 0.5rem;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 1.5rem;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 /* ------------------------------------- */
-/* 2. HEADER/HOME */
+/* 1. NAVBAR (General) */
 /* ------------------------------------- */
+/* ------------------------------------- */
+/* 1. NAVBAR (General) */
+/* ------------------------------------- */
+/* ------------------------------------- */
+/* 1. NAVBAR (General) */
+/* ------------------------------------- */
+.navbar {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    padding: 0.8rem 5%; /* <--- UBAH INI: Menyesuaikan padding vertikal navbar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+/* KODE BARU UNTUK LOGO GAMBAR */
+.navbar .logo a {
+    display: flex; 
+    align-items: center;
+    height: 55px; 
+    text-decoration: none;
+    /* Optional: jika ingin container link juga bulat */
+    /* overflow: hidden; */ 
+    /* border-radius: 50%; */
+}    
 
-#home {
+.navbar .logo a img {
+    height: 100%; 
+    min-width: 150px; 
+    width: auto; 
+    display: block; 
+    transition: opacity 0.3s ease;
+    
+    /* TAMBAH/UBAH INI: Agar Gambar Menjadi Bulat */
+    border-radius: 50%; /* <--- KODE PENTING INI */
+    object-fit: contain; /* <--- OPTIONAL: untuk memastikan gambar tidak terpotong aneh */
+}
+
+.navbar .logo a:hover img {
+    opacity: 0.8;
+}
+/* Sisa kode navbar tetap sama di sini... */
+.hamburger {
+    display: block; 
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--text-light);
+}
+
+.nav-links {
+    display: none; 
+    list-style: none;
+    flex-direction: column; 
+    width: 100%;
+    position: absolute;
+    top: 65px; 
+    left: 0;
+    background-color: var(--text-dark);
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+    border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+    gap: 0;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+.nav-links li {
+    text-align: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-links li:last-child {
+    border-bottom: none;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    display: block;
+    padding: 0.5rem 0;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ------------------------------------- */
+/* HERO SECTION (index.html dan halaman profil) */
+/* ------------------------------------- */
+.hero, #home {
+    /* Menggabungkan style hero dan home agar lebih konsisten */
     background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
     color: var(--text-light);
     text-align: center;
-    padding: 6rem 5%;
+    padding: 8rem 5%;
     min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: var(--border-radius-lg);
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
 }
+
+.hero-content h2, .header-content .name {
+    color: var(--text-light);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border-bottom: none; 
+    position: static;
+    transform: none;
+}
+.hero-content h2::after, .header-content .name::after {
+    display: none;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* ------------------------------------- */
+/* DETAIL PROFIL (daniello, gino, maikel) */
+/* ------------------------------------- */
 
 .header-content {
     display: flex;
@@ -122,8 +230,8 @@ h2 {
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 180px; 
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid var(--text-light);
@@ -141,6 +249,11 @@ h2 {
     font-weight: 400;
 }
 
+.desc-singkat {
+    max-width: 600px;
+    font-size: 1.1rem;
+}
+
 .social-media {
     margin-top: 1rem;
     display: flex;
@@ -149,17 +262,17 @@ h2 {
 
 .social-media a {
     color: var(--text-light);
-    font-size: 1.5rem;
-    transition: transform 0.3s;
+    font-size: 1.8rem;
+    transition: transform 0.3s, color 0.3s;
 }
 
 .social-media a:hover {
     transform: scale(1.1);
-    color: #ffc107; /* Kuning untuk hover */
+    color: #ffc107;
 }
 
 /* ------------------------------------- */
-/* 3. ABOUT */
+/* ABOUT Section */
 /* ------------------------------------- */
 
 #about .container {
@@ -167,9 +280,13 @@ h2 {
 }
 
 .about-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 1rem;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 2rem;
 }
 
 .about-content p {
@@ -178,8 +295,43 @@ h2 {
     text-align: justify;
 }
 
+.about-img {
+    max-width: 300px; 
+    height: auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.about-img:hover {
+    transform: scale(1.02);
+}
+
+@media (min-width: 769px) {
+    .about-content {
+        flex-direction: row; 
+        text-align: left;
+        align-items: flex-start;
+    }
+    .about-content p {
+        flex: 1; 
+        margin-right: 2rem;
+    }
+    .about-img {
+        flex-shrink: 0;
+    }
+    .about-content:nth-of-type(even) { 
+        flex-direction: row-reverse;
+    }
+    .about-content:nth-of-type(even) p {
+        margin-left: 2rem;
+        margin-right: 0;
+    }
+}
+
+
 /* ------------------------------------- */
-/* 4. SKILL */
+/* SKILL Section */
 /* ------------------------------------- */
 
 #skill {
@@ -188,33 +340,39 @@ h2 {
 
 .skill-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
     text-align: center;
     padding: 0 1rem;
 }
 
 .skill-item {
     background-color: var(--text-light);
-    padding: 20px;
-    border-radius: 10px;
+    padding: 25px;
+    border-radius: var(--border-radius-lg);
     transition: transform 0.3s, box-shadow 0.3s;
     border-left: 5px solid var(--primary-color);
+    box-shadow: var(--shadow);
 }
 
 .skill-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
 }
 
 .skill-item h4 {
     color: var(--primary-color);
     margin-bottom: 10px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+}
+
+.skill-item p {
+    font-size: 1rem;
+    color: #555;
 }
 
 /* ------------------------------------- */
-/* 5. CONTACT */
+/* CONTACT Section */
 /* ------------------------------------- */
 
 #contact {
@@ -226,54 +384,64 @@ h2 {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
     padding: 0 1rem;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    padding: 1.1rem;
+    border: 1px solid #ced4da;
+    border-radius: var(--border-radius-sm);
     font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
 }
 
 .contact-form textarea {
     resize: vertical;
-    min-height: 150px;
+    min-height: 180px;
 }
 
 .btn-submit {
     background-color: var(--primary-color);
     color: var(--text-light);
-    padding: 1rem;
+    padding: 1.2rem;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--border-radius-sm);
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: 600;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn-submit:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 /* ------------------------------------- */
-/* 6. FOOTER */
+/* FOOTER */
 /* ------------------------------------- */
 
-.footer {
+footer {
     background-color: var(--text-dark);
     color: var(--secondary-color);
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 1.8rem 0;
     margin-top: 3rem;
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
 }
 
-.footer p {
+footer p {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 /* ------------------------------------- */
@@ -285,42 +453,56 @@ h2 {
         padding: 1rem 20px;
     }
     
-    /* Tampilkan Hamburger, sembunyikan link */
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px; /* Di bawah navbar */
-        left: 0;
-        background-color: var(--text-dark);
-        padding: 1rem 0;
-        box-shadow: var(--shadow);
+    .hero, #home {
+        padding: 5rem 5%;
+        min-height: 60vh;
     }
 
-    .nav-links li {
-        text-align: center;
-        padding: 0.5rem 0;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    /* Tampilkan menu saat dibuka */
-    .nav-links.active {
-        display: flex;
-    }
-
-    .name {
+    .hero-content h2 {
         font-size: 2.5rem;
     }
 
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .profile-img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .name {
+        font-size: 2.2rem;
+    }
+
     .job-title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    .about-content {
+        flex-direction: column; 
+        text-align: center;
+    }
+    .about-content p {
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 1.5rem;
+    }
+    .about-img {
+        max-width: 100%;
     }
 
     .skill-grid {
-        grid-template-columns: 1fr; /* Satu kolom di mobile */
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 3rem 0; 
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
 }

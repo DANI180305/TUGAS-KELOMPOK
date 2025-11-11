@@ -4,49 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Maikel</title>
-    <!-- Link ke file CSS yang sudah kita buat -->
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome untuk ikon sosial media -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        /* CSS tambahan untuk memastikan ikon Font Awesome bekerja */
-        .fa-linkedin-in:before { content: "\f0e1"; }
-        .fa-github:before { content: "\f09b"; }
-        .fa-twitter:before { content: "\f099"; }
-    </style>
 </head>
 <body>
 
-    <!-- NAV BAR -->
-    <header class="navbar">
-        <div class="logo">
-            <a href="maikel.html">Porto Web | B</a>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-        <nav>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">
+    <a href="index.html">
+        <img src="images/Logo.jpg" alt="Team DGM Logo">
+    </a>
+</h1>
+            
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
             <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="daniello.html">Daniello</a></li>
                 <li><a href="gino.html">Gino</a></li>
                 <li><a href="maikel.html">Maikel</a></li>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skill">Skill</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HEADER / HOME -->
     <section id="home">
         <div class="header-content">
-            <!-- Ganti URL ini dengan foto Anda, atau gunakan placeholder -->
-            <img src="https://placehold.co/150x150/007bff/ffffff?text=Maikel" alt="Foto Profil Maikel" class="profile-img">
+            <img src="images/maikel.jpg" alt="Foto Profil Maikel" class="profile-img">
             
             <h1 class="name">Maikel</h1>
-            <p class="job-title">Fullstack Developer & Project Manager</p>
-            <p class="desc-singkat">Seorang integrator yang mahir menghubungkan front-end dan back-end, sekaligus mengatur alur kerja tim secara efisien.</p>
+            <p class="job-title">SAYA MAHASISWA SISTEM INFORMASI</p>
+            <p class="desc-singkat">Saya laki-laki dari gunung sa orang sendiri</p>
 
-            <!-- Social Media -->
             <div class="social-media">
                 <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-github"></i></a>
@@ -55,48 +44,37 @@
         </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
         <div class="container">
             <h2>Tentang Saya</h2>
             <div class="about-content">
                 <p>
-                    Maikel memiliki keahlian holistik dalam pengembangan web, mulai dari infrastruktur server hingga antarmuka klien. Ia bertindak sebagai jembatan antara kebutuhan desain (Gino) dan kebutuhan fungsionalitas data (Daniello).
+                    Maikel adalah seorang mahasiswa Sistem informasi di Universitas Musamus yang saat ini menempuh Semester 5. Bersemangat dalam mempelajari integritas teknologi dan bisnis, khususnya dalam pengembangan sistem dan pengelolah data.
                 </p>
                 <p>
-                    Sebagai manajer proyek tidak resmi, ia bertanggung jawab memastikan bahwa semua bagian proyek terintegrasi dengan mulus dan tugas kelompok diselesaikan tepat waktu sesuai dengan kerangka kerja yang telah disepakati.
+                    Bermimpilah dan jangan takut gagal, Setiap hari adalah kesempatan baru untuk menjadi lebih baik.
                 </p>
-                <img src="https://placehold.co/300x200/e9ecef/343a40?text=Foto+Lain" alt="Foto Tambahan Maikel" style="max-width: 100%; height: auto; border-radius: 8px;">
+                <img src="images/maikel.jpg" alt="Foto Tambahan Maikel" class="about-img">
             </div>
         </div>
     </section>
 
-    <!-- SKILL -->
     <section id="skill">
         <div class="container">
-            <h2>Keahlian Teknis</h2>
+            <h2>Skills</h2>
             <div class="skill-grid">
                 <div class="skill-item">
-                    <h4>Node.js / Express</h4>
-                    <p>Pengembangan server-side yang cepat dan efisien menggunakan JavaScript.</p>
+                    <h4>Bermain futsal</h4>
+                    <p>Bermain futsal adalah hobi saya dan bermain futsal juga bermanfaat bagi kesehatan fisik .</p>
                 </div>
                 <div class="skill-item">
-                    <h4>API Integration</h4>
-                    <p>Mahir dalam menghubungkan RESTful API ke antarmuka front-end.</p>
-                </div>
-                <div class="skill-item">
-                    <h4>Git & Version Control</h4>
-                    <p>Mengelola repositori, merging, dan mengatasi konflik dalam tim.</p>
-                </div>
-                <div class="skill-item">
-                    <h4>Project Planning</h4>
-                    <p>Manajemen tugas dan alokasi sumber daya dalam pengembangan web.</p>
+                    <h4>Bermain Game</h4>
+                    <p>Bermain game sangat seru dan menyenangkan, manfaat bermain game meningkatkan fokus dan konsentrasi .</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
         <div class="container">
             <h2>Hubungi Maikel</h2>
@@ -109,12 +87,10 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>&copy; 2025 Kelompok B Web Portfolio. Powered by HTML & CSS.</p>
+    <footer>
+        <p>&copy; Portfolio Punya Kelompok 9.</p>
     </footer>
 
-    <!-- JavaScript untuk fungsi Hamburger Menu -->
     <script>
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
